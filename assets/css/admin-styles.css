@@ -1,0 +1,1846 @@
+/* Marine World Booking Admin Styles */
+
+/* Variables */
+:root {
+  --mwb-admin-primary: #007cba;
+  --mwb-admin-secondary: #f0f0f0;
+  --mwb-admin-success: #28a745;
+  --mwb-admin-warning: #ffc107;
+  --mwb-admin-danger: #dc3545;
+  --mwb-admin-info: #17a2b8;
+  --mwb-admin-light: #f8f9fa;
+  --mwb-admin-dark: #343a40;
+  --mwb-admin-border: #dee2e6;
+  --mwb-admin-border-radius: 6px;
+  --mwb-admin-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --mwb-admin-transition: all 0.3s ease;
+}
+
+/* Base Admin Styles */
+.mwb-admin-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  font-size: 16px;
+  color: var(--mwb-admin-dark);
+}
+
+.mwb-admin-loading .mwb-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--mwb-admin-border);
+  border-top: 2px solid var(--mwb-admin-primary);
+  border-radius: 50%;
+  animation: mwb-admin-spin 1s linear infinite;
+  margin-right: 12px;
+}
+
+@keyframes mwb-admin-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Dashboard Styles */
+.mwb-dashboard {
+  max-width: 1200px;
+  margin: 0;
+  padding: 0;
+}
+
+.mwb-dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: white;
+  border-radius: var(--mwb-admin-border-radius);
+  box-shadow: var(--mwb-admin-box-shadow);
+}
+
+.mwb-dashboard-header h2 {
+  margin: 0;
+  color: var(--mwb-admin-dark);
+}
+
+.mwb-date-filters {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.mwb-date-filters input[type="date"] {
+  padding: 8px 12px;
+  border: 1px solid var(--mwb-admin-border);
+  border-radius: var(--mwb-admin-border-radius);
+  font-size: 14px;
+}
+
+/* Stats Grid */
+.mwb-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.mwb-stats-card {
+  background: white;
+  border-radius: var(--mwb-admin-border-radius);
+  padding: 24px;
+  box-shadow: var(--mwb-admin-box-shadow);
+  border-left: 4px solid var(--mwb-admin-primary);
+  transition: var(--mwb-admin-transition);
+}
+
+.mwb-stats-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.mwb-stats-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.mwb-stats-header h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mwb-stats-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--mwb-admin-primary);
+}
+
+.mwb-stats-value {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--mwb-admin-dark);
+  margin-bottom: 8px;
+}
+
+.mwb-stats-trend {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.mwb-stats-trend.positive {
+  color: var(--mwb-admin-success);
+}
+
+.mwb-stats-trend.negative {
+  color: var(--mwb-admin-danger);
+}
+
+/* Dashboard Grid */
+.mwb-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.mwb-recent-bookings,
+.mwb-upcoming-events {
+  background: white;
+  border-radius: var(--mwb-admin-border-radius);
+  padding: 24px;
+  box-shadow: var(--mwb-admin-box-shadow);
+}
+
+.mwb-recent-bookings h3,
+.mwb-upcoming-events h3 {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  color: var(--mwb-admin-dark);
+  border-bottom: 2px solid var(--mwb-admin-border);
+  padding-bottom: 12px;
+}
+
+.mwb-bookings-list,
+.mwb-events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mwb-booking-item,
+.mwb-event-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid var(--mwb-admin-border);
+  border-radius: var(--mwb-admin-border-radius);
+  transition: var(--mwb-admin-transition);
+}
+
+.mwb-booking-item:hover,
+.mwb-event-item:hover {
+  background-color: var(--mwb-admin-light);
+  border-color: var(--mwb-admin-primary);
+}
+
+.mwb-booking-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mwb-booking-info strong {
+  color: var(--mwb-admin-primary);
+  font-family: monospace;
+}
+
+.mwb-booking-info span {
+  font-size: 13px;
+  color: #666;
+}
+
+.mwb-booking-amount {
+  font-weight: bold;
+  color: var(--mwb-admin-dark);
+}
+
+.mwb-booking-status {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mwb-booking-status.pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.mwb-booking-status.confirmed {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.mwb-booking-status.cancelled {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.mwb-booking-status.refunded {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.mwb-event-date {
+  font-weight: bold;
+  color: var(--mwb-admin-primary);
+}
+
+.mwb-event-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.mwb-event-stats span {
+  font-size: 13px;
+  color: #666;
+}
+
+/* Bookings Management */
+.mwb-bookings-management {
+  background: white;
+  border-radius: var(--mwb-admin-border-radius);
+  box-shadow: var(--mwb-admin-box-shadow);
+  overflow: hidden;
+}
+
+.mwb-bookings-header {
+  padding: 20px;
+  border-bottom: 1px solid var(--mwb-admin-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.mwb-search-filters {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.mwb-search-input {
+  padding: 8px 12px;
+  border: 1px solid var(--mwb-admin-border);
+  border-radius: var(--mwb-admin-border-radius);
+  font-size: 14px;
+  min-width: 200px;
+}
+
+.mwb-search-filters input[type="date"],
+.mwb-search-filters select {
+  padding: 8px 12px;
+  border: 1px solid var(--mwb-admin-border);
+  border-radius: var(--mwb-admin-border-radius);
+  font-size: 14px;
+}
+
+.mwb-bulk-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.mwb-bulk-actions select {
+  padding: 8px 12px;
+  border: 1px solid var(--mwb-admin-border);
+  border-radius: var(--mwb-admin-border-radius);
+  font-size: 14px;
+}
+
+.mwb-bookings-table-wrapper {
+  overflow-x: auto;
+}
+
+.mwb-customer-contact {
+  font-size: 12px;
+  color: #666;
+  margin-top: 2px;
+}
+
+.mwb-booking-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.mwb-booking-actions .button-small {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+/* Status Badges */
+.mwb-status-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mwb-status-badge.pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.mwb-status-badge.confirmed {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.mwb-status-badge.cancelled {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.mwb-status-badge.refunded {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.mwb-status-badge.expired {
+  background-color: #e2e3e5;
+  color: #383d41;
+}
+
+/* Pagination */
+.mwb-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  border-top: 1px solid var(--mwb-admin-border);
+}
+
+.mwb-pagination-info {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Availability Management */
+.mwb-availability-management {
+  background: white;
+  border-radius: var(--mwb-admin-border-radius);
+  box-shadow: var(--mwb-admin-box-shadow);
+  overflow: hidden;
+}
+
+.mwb-availability-header {
+  padding: 20px;
+  border-bottom: 1px solid var(--mwb-admin-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mwb-location-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mwb-location-selector label {
+  font-weight: 500;
+  color: var(--mwb-admin-dark);
+}
+
+.mwb-location-selector select {
+  padding: 8px 12px;
+  border: 1px solid var(--mwb-admin-border);
+  border-radius: var(--mwb-admin-border-radius);
+  font-size: 14px;
+}
+
+.mwb-month-navigation {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mwb-month-navigation h3 {
+  margin: 0;
+  font-size: 18px;
+  color: var(--mwb-admin-dark);
+  min-width: 200px;
+  text-align: center;
+}
+
+.mwb-availability-calendar {
+  padding: 20px;
+}
+
+.mwb-calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  margin-bottom: 1px;
+}
+
+.mwb-weekday {
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+  background-color: var(--mwb-admin-primary);
+  color: white;
+  font-size: 14px;
+}
+
+.mwb-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background-color: var(--mwb-admin-border);
+}
+
+.mwb-calendar-day {
+  min-height: 80px;
+  padding: 8px;
+  background: white;
+  cursor: pointer;
+  transition: var(--mwb-admin-transition);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mwb-calendar-day:hover {
+  background-color: #e3f2fd;
+}
+
+.mwb-calendar-day.other-month {
+  background-color: #f8f9fa;
+  color: #adb5bd;
+  cursor: default;
+}
+
+.mwb-calendar-day.other-month:hover {
+  background-color: #f8f9fa;
+}
+
+.mwb-calendar-day.today {
+  background-color: #fff3cd;
+  border: 2px solid var(--mwb-admin-warning);
+}
+
+.mwb-calendar-day.available {
+  background-color: #d4edda;
+}
+
+.mwb-calendar-day.limited {
+  background-color: #fff3cd;
+}
+
+.mwb-calendar-day.sold_out {
+  background-color: #f8d7da;
+}
+
+.mwb-calendar-day.blackout {
+  background-color: #e2e3e5;
+  color: #6c757d;
+  position: relative;
+}
+
+.mwb-calendar-day.blackout::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 5px,
+    rgba(0, 0, 0, 0.1) 5px,
+    rgba(0, 0, 0, 0.1) 10px
+  );
+}
+
+.date-number {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--mwb-admin-dark);
+}
+
+.availability-info {
+  font-size: 11px;
+  color: #666;
+  text-align: center;
+}
+
+.special-price {
+  background-color: var(--mwb-admin-warning);
+  color: var(--mwb-admin-dark);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+/* Edit Modal */
+.mwb-edit-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.mwb-modal-content {
+  background: white;
+  border-radius: var(--mwb-admin-border-radius);
+  padding: 24px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.mwb-modal-content h3 {
+  margin: 0 0 20px 0;
+  color: var(--mwb-admin-dark);
+}
+
+.mwb-form-group {
+  margin-bottom: 16px;
+}
+
+.mwb-form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: var(--mwb-admin-dark);
+}
+
+.mwb-form-group input[type="number"],
+.mwb-form-group input[type="text"] {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--mwb-admin-border);
+  border-radius: var(--mwb-admin-border-radius);
+  font-size: 14px;
+}
+
+.mwb-form-group input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+.mwb-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+/* Settings Page */
+.nav-tab-wrapper {
+  margin-bottom: 20px;
+}
+
+.tab-content {
+  background: white;
+  padding: 20px;
+  border-radius: var(--mwb-admin-border-radius);
+  box-shadow: var(--mwb-admin-box-shadow);
+}
+
+.form-table {
+  margin-top: 0;
+}
+
+.form-table th {
+  width: 200px;
+  padding: 15px 10px 15px 0;
+  vertical-align: top;
+}
+
+.form-table td {
+  padding: 15px 10px;
+}
+
+.form-table input[type="text"],
+.form-table input[type="email"],
+.form-table input[type="password"],
+.form-table input[type="number"],
+.form-table select {
+  padding: 8px 12px;
+  border: 1px solid var(--mwb-admin-border);
+  border-radius: var(--mwb-admin-border-radius);
+  font-size: 14px;
+}
+
+.form-table .regular-text {
+  width: 300px;
+}
+
+.form-table .description {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Analytics Charts */
+.mwb-analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.mwb-chart-container {
+  background: white;
+  border-radius: var(--mwb-admin-border-radius);
+  padding: 24px;
+  box-shadow: var(--mwb-admin-box-shadow);
+}
+
+.mwb-chart-container h3 {
+  margin: 0 0 20px 0;
+  color: var(--mwb-admin-dark);
+  border-bottom: 2px solid var(--mwb-admin-border);
+  padding-bottom: 12px;
+}
+
+.mwb-chart-container canvas {
+  max-height: 300px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .mwb-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .mwb-stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .mwb-dashboard-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .mwb-bookings-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .mwb-search-filters {
+    flex-direction: column;
+  }
+  
+  .mwb-search-input {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .mwb-availability-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .mwb-month-navigation {
+    justify-content: center;
+  }
+  
+  .mwb-calendar-day {
+    min-height: 60px;
+    font-size: 14px;
+  }
+  
+  .date-number {
+    font-size: 14px;
+  }
+  
+  .availability-info {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mwb-modal-content {
+    width: 95%;
+    padding: 16px;
+  }
+  
+  .mwb-calendar-day {
+    min-height: 50px;
+    padding: 4px;
+  }
+  
+  .mwb-weekday {
+    padding: 8px 4px;
+    font-size: 12px;
+  }
+}
+
+/* WordPress Admin Compatibility */
+.wrap .mwb-dashboard,
+.wrap .mwb-bookings-management,
+.wrap .mwb-availability-management {
+  margin-top: 20px;
+}
+
+/* Custom Scrollbar */
+.mwb-bookings-table-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.mwb-bookings-table-wrapper::-webkit-scrollbar-track {
+  background: var(--mwb-admin-light);
+}
+
+.mwb-bookings-table-wrapper::-webkit-scrollbar-thumb {
+  background: var(--mwb-admin-border);
+  border-radius: 4px;
+}
+
+.mwb-bookings-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--mwb-admin-primary);
+}
+
+/* Print Styles */
+@media print {
+  .mwb-dashboard-header,
+  .mwb-bookings-header,
+  .mwb-availability-header,
+  .mwb-pagination,
+  .mwb-modal-actions {
+    display: none !important;
+  }
+  
+  .mwb-stats-card,
+  .mwb-booking-item,
+  .mwb-calendar-day {
+    break-inside: avoid;
+  }
+}
+
+/* Focus Styles for Accessibility */
+.mwb-calendar-day:focus,
+.button:focus,
+input:focus,
+select:focus {
+  outline: 2px solid var(--mwb-admin-primary);
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --mwb-admin-border: #000;
+    --mwb-admin-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .mwb-stats-card {
+    border: 2px solid var(--mwb-admin-primary);
+  }
+}
+
+/* Locations Management */
+.mwb-locations-management {
+  background: white;
+  border-radius: var(--mwb-admin-border-radius);
+  box-shadow: var(--mwb-admin-box-shadow);
+  overflow: hidden;
+}
+
+.mwb-locations-header {
+  padding: 20px;
+  border-bottom: 1px solid var(--mwb-admin-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.mwb-location-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.mwb-locations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.mwb-location-card {
+  background: white;
+  border: 1px solid var(--mwb-admin-border);
+  border-radius: var(--mwb-admin-border-radius);
+  padding: 20px;
+  transition: var(--mwb-admin-transition);
+  position: relative;
+}
+
+.mwb-location-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: var(--mwb-admin-primary);
+}
+
+.mwb-location-card.inactive {
+  opacity: 0.7;
+  background-color: #f8f9fa;
+}
+
+.mwb-location-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--mwb-admin-border);
+}
+
+.mwb-location-header input[type="checkbox"] {
+  margin: 0;
+}
+
+.mwb-location-header h3 {
+  margin: 0;
+  flex: 1;
+  font-size: 18px;
+  color: var(--mwb-admin-dark);
+}
+
+.mwb-location-details {
+  margin-bottom: 16px;
+}
+
+.mwb-location-address,
+.mwb-location-contact,
+.mwb-location-facilities {
+  margin-bottom: 12px;
+}
+
+.mwb-location-address strong,
+.mwb-location-contact strong,
+.mwb-location-facilities strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--mwb-admin-dark);
+  font-size: 14px;
+}
+
+.mwb-location-address span,
+.mwb-location-contact span {
+  color: #666;
+  font-size: 14px;
+}
+
+.mwb-location-contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.mwb-facilities-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.mwb-facility-tag {
+  background-color: var(--mwb-admin-primary);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.mwb-facility-tag.removable {
+  background-color: var(--mwb-admin-secondary);
+  color: var(--mwb-admin-dark);
+  padding-right: 24px;
+  position: relative;
+}
+
+.mwb-remove-facility {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--mwb-admin-danger);
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mwb-facility-more {
+  background-color: var(--mwb-admin-secondary);
+  color: #666;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.mwb-location-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 12px;
+  background-color: var(--mwb-admin-light);
+  border-radius: var(--mwb-admin-border-radius);
+}
+
+.mwb-stat-item {
+  text-align: center;
+}
+
+.mwb-stat-label {
+  display: block;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.mwb-stat-value {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--mwb-admin-dark);
+}
+
+.mwb-location-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.mwb-location-actions .button-small {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+/* Location Form Modal */
+.mwb-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.mwb-location-form-modal {
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.mwb-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--mwb-admin-border);
+}
+
+.mwb-modal-header h2 {
+  margin: 0;
+  color: var(--mwb-admin-dark);
+}
+
+.mwb-modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: var(--mwb-admin-transition);
+}
+
+.mwb-modal-close:hover {
+  background-color: var(--mwb-admin-danger);
+  color: white;
+}
+
+.mwb-modal-body {
+  margin-bottom: 20px;
+}
+
+.mwb-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.mwb-form-group-full {
+  grid-column: 1 / -1;
+}
+
+.mwb-form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: var(--mwb-admin-dark);
+}
+
+.mwb-form-group input,
+.mwb-form-group select,
+.mwb-form-group textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--mwb-admin-border);
+  border-radius: var(--mwb-admin-border-radius);
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.mwb-form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.mwb-form-section {
+  margin-bottom: 24px;
+  padding: 16px;
+  background-color: var(--mwb-admin-light);
+  border-radius: var(--mwb-admin-border-radius);
+}
+
+.mwb-form-section h3 {
+  margin: 0 0 16px 0;
+  color: var(--mwb-admin-dark);
+  font-size: 16px;
+}
+
+.mwb-timings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.mwb-timing-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mwb-timing-row label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--mwb-admin-dark);
+  text-transform: capitalize;
+}
+
+.mwb-facilities-input {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.mwb-facilities-input input {
+  flex: 1;
+}
+
+.mwb-facilities-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mwb-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--mwb-admin-border);
+}
+
+/* Location Stats Modal */
+.mwb-stats-modal {
+  max-width: 900px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.mwb-stats-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mwb-stats-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.mwb-utilization-chart h3 {
+  margin: 0 0 16px 0;
+  color: var(--mwb-admin-dark);
+}
+
+.mwb-utilization-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mwb-utilization-item {
+  display: grid;
+  grid-template-columns: 100px 1fr 60px;
+  gap: 12px;
+  align-items: center;
+  padding: 8px;
+  background-color: var(--mwb-admin-light);
+  border-radius: var(--mwb-admin-border-radius);
+}
+
+.mwb-util-date {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--mwb-admin-dark);
+}
+
+.mwb-util-bar {
+  height: 20px;
+  background-color: var(--mwb-admin-border);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.mwb-util-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--mwb-admin-success), var(--mwb-admin-warning), var(--mwb-admin-danger));
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.mwb-util-percentage {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--mwb-admin-dark);
+  text-align: right;
+}
+
+/* Status Badges for Locations */
+.mwb-status-badge.active {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.mwb-status-badge.inactive {
+  background-color: #e2e3e5;
+  color: #383d41;
+}
+
+/* Responsive Design for Locations */
+@media (max-width: 768px) {
+  .mwb-locations-grid {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+  
+  .mwb-location-card {
+    padding: 16px;
+  }
+  
+  .mwb-location-stats {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .mwb-location-contact {
+    grid-template-columns: 1fr;
+  }
+  
+  .mwb-form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .mwb-timings-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .mwb-stats-overview {
+    grid-template-columns: 1fr;
+  }
+  
+  .mwb-utilization-item {
+    grid-template-columns: 80px 1fr 50px;
+    gap: 8px;
+  }
+  
+  .mwb-facilities-input {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .mwb-location-form-modal,
+  .mwb-stats-modal {
+    width: 95%;
+    padding: 16px;
+  }
+  
+  .mwb-location-header {
+    flex-wrap: wrap;
+  }
+  
+  .mwb-location-actions {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .mwb-modal-footer {
+    flex-direction: column;
+  }
+}
+
+/* Loading States */
+.mwb-locations-grid.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.mwb-location-card.loading {
+  position: relative;
+}
+
+.mwb-location-card.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Form Validation */
+.mwb-form-group input.error,
+.mwb-form-group select.error,
+.mwb-form-group textarea.error {
+  border-color: var(--mwb-admin-danger);
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25);
+}
+
+.mwb-error-message {
+  color: var(--mwb-admin-danger);
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Success Messages */
+.mwb-success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 12px 16px;
+  border-radius: var(--mwb-admin-border-radius);
+  margin-bottom: 16px;
+  border: 1px solid #c3e6cb;
+}
+
+/* Empty State */
+.mwb-locations-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+.mwb-locations-empty h3 {
+  margin: 0 0 12px 0;
+  color: var(--mwb-admin-dark);
+}
+
+.mwb-locations-empty p {
+  margin: 0 0 20px 0;
+  font-size: 14px;
+}
+
+/* Add-ons Management */
+.mwb-addons-management {
+  background: white;
+  border-radius: var(--mwb-admin-border-radius);
+  box-shadow: var(--mwb-admin-box-shadow);
+  overflow: hidden;
+}
+
+.mwb-addons-header {
+  padding: 20px;
+  border-bottom: 1px solid var(--mwb-admin-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.mwb-addon-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.mwb-addons-grid {
+  padding: 20px;
+}
+
+.mwb-addons-note {
+  background-color: #e3f2fd;
+  border: 1px solid #bbdefb;
+  border-radius: var(--mwb-admin-border-radius);
+  padding: 12px 16px;
+  margin-bottom: 20px;
+}
+
+.mwb-addons-note p {
+  margin: 0;
+  color: #1565c0;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mwb-addon-card {
+  background: white;
+  border: 1px solid var(--mwb-admin-border);
+  border-radius: var(--mwb-admin-border-radius);
+  padding: 20px;
+  margin-bottom: 16px;
+  transition: var(--mwb-admin-transition);
+  position: relative;
+  cursor: move;
+}
+
+.mwb-addon-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: var(--mwb-admin-primary);
+}
+
+.mwb-addon-card.inactive {
+  opacity: 0.7;
+  background-color: #f8f9fa;
+}
+
+.mwb-addon-card:active {
+  cursor: grabbing;
+}
+
+.mwb-addon-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--mwb-admin-border);
+}
+
+.mwb-addon-drag-handle {
+  color: #999;
+  cursor: grab;
+  padding: 4px;
+  border-radius: 4px;
+  transition: var(--mwb-admin-transition);
+}
+
+.mwb-addon-drag-handle:hover {
+  background-color: var(--mwb-admin-light);
+  color: var(--mwb-admin-primary);
+}
+
+.mwb-addon-drag-handle:active {
+  cursor: grabbing;
+}
+
+.mwb-addon-header input[type="checkbox"] {
+  margin: 0;
+}
+
+.mwb-addon-header h3 {
+  margin: 0;
+  flex: 1;
+  font-size: 18px;
+  color: var(--mwb-admin-dark);
+}
+
+.mwb-addon-details {
+  margin-bottom: 16px;
+}
+
+.mwb-addon-description {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+.mwb-addon-price,
+.mwb-addon-order {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.mwb-addon-price strong,
+.mwb-addon-order strong {
+  color: var(--mwb-admin-dark);
+}
+
+.mwb-price-value {
+  color: var(--mwb-admin-success);
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.mwb-addon-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 12px;
+  background-color: var(--mwb-admin-light);
+  border-radius: var(--mwb-admin-border-radius);
+}
+
+.mwb-addon-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.mwb-addon-actions .button-small {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+/* Add-on Form Modal */
+.mwb-addon-form-modal {
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Add-on Stats Modal */
+.mwb-addons-breakdown h3 {
+  margin: 0 0 16px 0;
+  color: var(--mwb-admin-dark);
+  font-size: 18px;
+}
+
+.mwb-addons-stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mwb-addon-stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: var(--mwb-admin-light);
+  border-radius: var(--mwb-admin-border-radius);
+  border: 1px solid var(--mwb-admin-border);
+}
+
+.mwb-addon-stat-name {
+  font-weight: 500;
+  color: var(--mwb-admin-dark);
+  font-size: 14px;
+}
+
+.mwb-addon-stat-values {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-size: 13px;
+  color: #666;
+}
+
+.mwb-addon-revenue {
+  color: var(--mwb-admin-success);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.mwb-addon-info {
+  padding: 16px;
+  background-color: var(--mwb-admin-light);
+  border-radius: var(--mwb-admin-border-radius);
+  margin-bottom: 20px;
+}
+
+.mwb-addon-info h3 {
+  margin: 0 0 8px 0;
+  color: var(--mwb-admin-dark);
+  font-size: 20px;
+}
+
+.mwb-addon-info p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Drag and Drop States */
+.mwb-addon-card.dragging {
+  opacity: 0.5;
+  transform: rotate(5deg);
+  z-index: 1000;
+}
+
+.mwb-addon-card.drag-over {
+  border-color: var(--mwb-admin-primary);
+  background-color: #e3f2fd;
+}
+
+/* Status Badges for Add-ons */
+.mwb-status-badge.active {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.mwb-status-badge.inactive {
+  background-color: #e2e3e5;
+  color: #383d41;
+}
+
+/* Responsive Design for Add-ons */
+@media (max-width: 768px) {
+  .mwb-addons-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .mwb-addon-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .mwb-addon-card {
+    padding: 16px;
+  }
+  
+  .mwb-addon-stats {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .mwb-addon-stat-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .mwb-addon-stat-values {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .mwb-addon-actions {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .mwb-addon-form-modal {
+    width: 95%;
+    padding: 16px;
+  }
+  
+  .mwb-addon-header {
+    flex-wrap: wrap;
+  }
+  
+  .mwb-addon-drag-handle {
+    order: -1;
+  }
+}
+
+/* Add-on Form Specific Styles */
+.mwb-addon-form-modal .mwb-form-group input[type="number"] {
+  text-align: right;
+}
+
+.mwb-addon-form-modal .mwb-form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Empty State for Add-ons */
+.mwb-addons-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+.mwb-addons-empty h3 {
+  margin: 0 0 12px 0;
+  color: var(--mwb-admin-dark);
+}
+
+.mwb-addons-empty p {
+  margin: 0 0 20px 0;
+  font-size: 14px;
+}
+
+/* Loading States for Add-ons */
+.mwb-addons-grid.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.mwb-addon-card.loading {
+  position: relative;
+}
+
+.mwb-addon-card.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .mwb-addon-card {
+    cursor: default;
+  }
+  
+  .mwb-addon-drag-handle {
+    cursor: default;
+  }
+}
+
+/* Basic Pricing Dashboard Styles */
+.mwb-pricing-dashboard {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+}
+
+.mwb-dashboard-header {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    background: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mwb-header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.mwb-loading {
+    padding: 50px;
+    text-align: center;
+    color: #666;
+}
+
+/* Image Upload Styles */
+.mwb-image-upload-container {
+    margin-top: 10px;
+}
+
+.mwb-image-upload-area {
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    padding: 40px 20px;
+    text-align: center;
+    background: #fafafa;
+    transition: all 0.3s ease;
+}
+
+.mwb-image-upload-area:hover {
+    border-color: #007cba;
+    background: #f0f8ff;
+}
+
+.mwb-upload-button {
+    display: block;
+    cursor: pointer;
+    color: #666;
+    text-decoration: none;
+}
+
+.mwb-upload-button:hover {
+    color: #007cba;
+}
+
+.mwb-upload-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.mwb-upload-button div {
+    margin-bottom: 5px;
+}
+
+.mwb-upload-button small {
+    color: #999;
+    font-size: 12px;
+}
+
+.mwb-image-preview-container {
+    position: relative;
+    max-width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.mwb-image-preview {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.mwb-image-actions {
+    padding: 15px;
+    background: #f9f9f9;
+    border-top: 1px solid #ddd;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.mwb-image-actions .button {
+    font-size: 12px;
+    height: auto;
+    padding: 6px 12px;
+}
+
+/* Add-on Card Image Display */
+.mwb-addon-image-preview {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.mwb-addon-card .mwb-addon-image-preview {
+    margin-bottom: 15px;
+}

@@ -1,0 +1,898 @@
+/* Marine World Frontend Admin Panel Styles */
+
+/* Base Panel Styles */
+.mwb-frontend-admin-panel {
+    background: #f1f1f1;
+    border-radius: 8px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin: 20px 0;
+}
+
+/* Access Control */
+.mwb-access-denied {
+    text-align: center;
+    padding: 40px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.mwb-access-denied p {
+    color: #721c24;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Login Form */
+.mwb-frontend-login {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mwb-frontend-login h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #23282d;
+}
+
+.mwb-frontend-login label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #23282d;
+}
+
+.mwb-frontend-login input[type="text"],
+.mwb-frontend-login input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.mwb-frontend-login input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.mwb-frontend-login .button {
+    background: #0073aa;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.mwb-frontend-login .button:hover {
+    background: #005a87;
+}
+
+/* Header */
+.mwb-admin-header {
+    background: #23282d;
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mwb-admin-title {
+    margin: 0;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mwb-admin-title .dashicons {
+    font-size: 24px;
+}
+
+.mwb-user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 14px;
+}
+
+.mwb-logout-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.mwb-logout-link:hover {
+    background: #fff;
+    color: #23282d;
+}
+
+/* Navigation */
+.mwb-admin-nav {
+    background: #fff;
+    border-bottom: 1px solid #ccd0d4;
+}
+
+.nav-tab-wrapper {
+    margin: 0;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nav-tab {
+    display: inline-block;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #0073aa;
+    border: none;
+    border-bottom: 3px solid transparent;
+    background: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nav-tab:hover {
+    color: #005a87;
+    background: #f9f9f9;
+}
+
+.nav-tab-active {
+    color: #23282d;
+    border-bottom-color: #0073aa;
+    background: #f9f9f9;
+}
+
+/* Content Area */
+.mwb-admin-content {
+    background: #fff;
+    min-height: 500px;
+}
+
+.mwb-tab-content {
+    padding: 20px;
+}
+
+.mwb-feature-container {
+    min-height: 400px;
+}
+
+/* Dashboard Styles */
+.mwb-frontend-dashboard {
+    padding: 0;
+}
+
+.mwb-dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.mwb-dashboard-header h2 {
+    margin: 0;
+    color: #23282d;
+}
+
+.mwb-date-filters {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mwb-date-filters input[type="date"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.mwb-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.mwb-stat-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #0073aa;
+    transition: transform 0.3s ease;
+}
+
+.mwb-stat-card:hover {
+    transform: translateY(-2px);
+}
+
+.mwb-stat-card h3 {
+    margin: 0 0 10px 0;
+    color: #555;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: #23282d;
+    line-height: 1;
+}
+
+/* Bookings Management */
+.mwb-frontend-bookings {
+    padding: 0;
+}
+
+.mwb-bookings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.mwb-bookings-header h2 {
+    margin: 0;
+    color: #23282d;
+}
+
+.mwb-search-bar {
+    display: flex;
+    gap: 10px;
+}
+
+.mwb-search-bar input[type="text"] {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 250px;
+}
+
+.mwb-bookings-table {
+    overflow-x: auto;
+}
+
+.mwb-bookings-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.mwb-bookings-table th {
+    background: #f8f9fa;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #23282d;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.mwb-bookings-table td {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: top;
+}
+
+.mwb-bookings-table tr:hover {
+    background: #f8f9fa;
+}
+
+/* Status Badges */
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-confirmed {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-cancelled {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.status-failed {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.status-completed {
+    background: #d4edda;
+    color: #155724;
+}
+
+/* Buttons */
+.button {
+    background: #0073aa;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s ease;
+}
+
+.button:hover {
+    background: #005a87;
+    color: #fff;
+}
+
+.button-secondary {
+    background: #6c757d;
+}
+
+.button-secondary:hover {
+    background: #545b62;
+}
+
+/* Loading States */
+.mwb-loading {
+    text-align: center;
+    padding: 60px;
+    color: #666;
+    font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mwb-admin-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .mwb-user-info {
+        align-self: flex-end;
+    }
+
+    .nav-tab-wrapper {
+        padding: 0 10px;
+    }
+
+    .nav-tab {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .mwb-tab-content {
+        padding: 15px;
+    }
+
+    .mwb-dashboard-header,
+    .mwb-bookings-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .mwb-date-filters,
+    .mwb-search-bar {
+        width: 100%;
+        justify-content: stretch;
+    }
+
+    .mwb-search-bar input[type="text"] {
+        flex: 1;
+        width: auto;
+    }
+
+    .mwb-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mwb-bookings-table {
+        font-size: 14px;
+    }
+
+    .mwb-bookings-table th,
+    .mwb-bookings-table td {
+        padding: 10px;
+    }
+}
+
+/* Theme Variations */
+.mwb-theme-modern {
+    border-radius: 12px;
+}
+
+.mwb-theme-modern .mwb-admin-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.mwb-theme-modern .nav-tab-active {
+    border-bottom-color: #667eea;
+}
+
+.mwb-theme-modern .mwb-stat-card {
+    border-left-color: #667eea;
+}
+
+.mwb-theme-minimal {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.mwb-theme-minimal .mwb-admin-header {
+    background: #fff;
+    color: #23282d;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.mwb-theme-minimal .mwb-logout-link {
+    border-color: #23282d;
+    color: #23282d;
+}
+
+.mwb-theme-minimal .mwb-logout-link:hover {
+    background: #23282d;
+    color: #fff;
+}
+
+/* Elementor Editor Preview */
+.mwb-elementor-editor {
+    border: 2px dashed #ccc;
+    background: #f9f9f9;
+}
+
+.mwb-elementor-editor .mwb-admin-header {
+    background: #23282d;
+    color: #fff;
+}
+
+.mwb-elementor-editor .mwb-admin-content {
+    padding: 40px;
+    text-align: center;
+    color: #666;
+}
+
+/* Modal/Popup Styles */
+.mwb-modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(0, 0, 0, 0.8) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 9999999 !important;
+    padding: 20px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+.mwb-modal-content {
+    background: #fff !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+    max-width: 90vw !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    position: relative !important;
+    z-index: 10000000 !important;
+    margin: auto !important;
+    pointer-events: auto !important;
+}
+
+.mwb-modal-header {
+    padding: 20px 25px;
+    border-bottom: 1px solid #e1e1e1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 8px 8px 0 0;
+}
+
+.mwb-modal-header h2 {
+    margin: 0;
+    color: #23282d;
+    font-size: 18px;
+}
+
+.mwb-modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.mwb-modal-close:hover {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.mwb-modal-body {
+    padding: 25px;
+}
+
+.mwb-modal-footer {
+    padding: 20px 25px;
+    border-top: 1px solid #e1e1e1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    background: #f8f9fa;
+    border-radius: 0 0 8px 8px;
+}
+
+/* Form Styles for Modals */
+.mwb-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.mwb-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.mwb-form-group-full {
+    grid-column: 1 / -1;
+}
+
+.mwb-form-group label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #23282d;
+}
+
+.mwb-form-group input,
+.mwb-form-group select,
+.mwb-form-group textarea {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.mwb-form-group input:focus,
+.mwb-form-group select:focus,
+.mwb-form-group textarea:focus {
+    outline: none;
+    border-color: #0073aa;
+    box-shadow: 0 0 0 1px #0073aa;
+}
+
+/* Form Sections */
+.mwb-form-section {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e1e1e1;
+}
+
+.mwb-form-section h3 {
+    margin: 0 0 15px 0;
+    color: #23282d;
+}
+
+/* Facilities Management */
+.mwb-facilities-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.mwb-facilities-input input {
+    flex: 1;
+}
+
+.mwb-facilities-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.mwb-facility-tag {
+    background: #e7f3ff;
+    color: #0073aa;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.mwb-facility-tag.removable {
+    padding-right: 4px;
+}
+
+.mwb-remove-facility {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.mwb-remove-facility:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Timing Grid */
+.mwb-timings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.mwb-timing-row {
+    display: flex;
+    flex-direction: column;
+}
+
+.mwb-timing-row label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+/* Edit Modal for Availability */
+.mwb-edit-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+}
+
+.mwb-edit-modal .mwb-modal-content {
+    background: #fff;
+    padding: 0;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    min-width: 400px;
+}
+
+.mwb-edit-modal h3 {
+    margin: 0 0 20px 0;
+    padding: 20px 25px 0;
+    color: #23282d;
+}
+
+.mwb-edit-modal .mwb-form-group {
+    margin-bottom: 15px;
+    padding: 0 25px;
+}
+
+.mwb-edit-modal .mwb-modal-actions {
+    padding: 20px 25px;
+    border-top: 1px solid #e1e1e1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    background: #f8f9fa;
+    border-radius: 0 0 8px 8px;
+}
+
+/* Modal Specific Styles */
+.mwb-addon-form-modal,
+.mwb-location-form-modal,
+.mwb-promo-form-modal {
+    min-width: 600px;
+}
+
+.mwb-stats-modal {
+    min-width: 800px;
+}
+
+.mwb-stats-content {
+    min-height: 400px;
+}
+
+.mwb-stats-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Modal Debugging - Ensure visibility */
+.mwb-modal-overlay[style*="display: none"] {
+    display: flex !important;
+}
+
+.mwb-modal-overlay.hidden {
+    display: none !important;
+}
+
+/* Force modal visibility - stronger rules */
+.mwb-modal-overlay {
+    display: flex !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 999999999 !important;
+    background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Ensure body doesn't scroll when modal is open */
+body.mwb-modal-open {
+    overflow: hidden !important;
+}
+
+/* Additional modal fixes */
+.mwb-modal-overlay * {
+    box-sizing: border-box;
+}
+
+.mwb-addon-form-modal,
+.mwb-location-form-modal, 
+.mwb-promo-form-modal {
+    position: relative !important;
+    z-index: inherit !important;
+}
+
+/* Debug: Make modal content very visible */
+.mwb-modal-content {
+    display: block !important;
+    position: relative !important;
+    background: white !important;
+    min-width: 400px !important;
+    min-height: 300px !important;
+}
+
+/* Settings Form Styles */
+.mwb-frontend-settings .form-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.mwb-frontend-settings .form-table th {
+    width: 200px;
+    padding: 20px 10px 20px 0;
+    text-align: left;
+    vertical-align: top;
+    font-weight: 600;
+    color: #23282d;
+}
+
+.mwb-frontend-settings .form-table td {
+    padding: 15px 10px;
+    vertical-align: top;
+}
+
+.mwb-frontend-settings .form-table input[type="text"],
+.mwb-frontend-settings .form-table input[type="email"],
+.mwb-frontend-settings .form-table input[type="password"],
+.mwb-frontend-settings .form-table input[type="number"],
+.mwb-frontend-settings .form-table select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.mwb-frontend-settings .form-table .regular-text {
+    width: 300px;
+}
+
+.mwb-frontend-settings .form-table .description {
+    margin: 5px 0 0 0;
+    font-size: 13px;
+    color: #666;
+    font-style: italic;
+}
+
+.mwb-frontend-settings .notice {
+    padding: 10px 15px;
+    margin: 15px 0;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.mwb-frontend-settings .notice-success {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.mwb-frontend-settings .notice-error {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+    .mwb-modal-overlay {
+        padding: 10px;
+    }
+    
+    .mwb-modal-content {
+        max-width: 95vw;
+    }
+    
+    .mwb-addon-form-modal,
+    .mwb-location-form-modal,
+    .mwb-promo-form-modal,
+    .mwb-stats-modal {
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .mwb-form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .mwb-timings-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .mwb-modal-header,
+    .mwb-modal-body,
+    .mwb-modal-footer {
+        padding: 15px 20px;
+    }
+}

@@ -1,0 +1,1344 @@
+/* Marine World Booking System Styles */
+
+/* CSS Variables for theming */
+:root {
+  --mwb-primary-color: #007cba;
+  --mwb-secondary-color: #f0f0f0;
+  --mwb-success-color: #28a745;
+  --mwb-warning-color: #ffc107;
+  --mwb-danger-color: #dc3545;
+  --mwb-info-color: #17a2b8;
+  --mwb-light-color: #f8f9fa;
+  --mwb-dark-color: #343a40;
+  --mwb-border-color: #dee2e6;
+  --mwb-border-radius: 8px;
+  --mwb-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --mwb-transition: all 0.3s ease;
+  --mwb-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Base Styles */
+.marine-world-booking-container,
+.marine-world-calendar-container,
+.marine-world-booking-elementor-widget {
+  font-family: var(--mwb-font-family);
+  line-height: 1.6;
+  color: var(--mwb-dark-color);
+  box-sizing: border-box;
+}
+
+.marine-world-booking-container *,
+.marine-world-calendar-container *,
+.marine-world-booking-elementor-widget * {
+  box-sizing: border-box;
+}
+
+/* Loading Spinner */
+.mwb-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+}
+
+.mwb-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--mwb-secondary-color);
+  border-top: 4px solid var(--mwb-primary-color);
+  border-radius: 50%;
+  animation: mwb-spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes mwb-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.mwb-loading-placeholder {
+  padding: 40px;
+  text-align: center;
+  color: var(--mwb-dark-color);
+}
+
+/* Error Message */
+.mwb-error {
+  padding: 20px;
+  background-color: #f8d7da;
+  color: #721c24;
+  border-radius: var(--mwb-border-radius);
+  border: 1px solid #f5c6cb;
+  text-align: center;
+}
+
+.mwb-retry-btn {
+  margin-top: 12px;
+  padding: 8px 16px;
+  background-color: var(--mwb-danger-color);
+  color: white;
+  border: none;
+  border-radius: var(--mwb-border-radius);
+  cursor: pointer;
+  transition: var(--mwb-transition);
+}
+
+.mwb-retry-btn:hover {
+  background-color: #c82333;
+}
+
+/* Progress Indicator */
+.mwb-progress-indicator {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: white;
+  border-radius: var(--mwb-border-radius);
+  box-shadow: var(--mwb-box-shadow);
+}
+
+.mwb-progress-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.mwb-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.mwb-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: var(--mwb-border-color);
+  z-index: 1;
+}
+
+.mwb-step.completed:not(:last-child)::after {
+  background-color: var(--mwb-success-color);
+}
+
+.mwb-step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--mwb-border-color);
+  color: var(--mwb-dark-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 2;
+  transition: var(--mwb-transition);
+}
+
+.mwb-step.active .mwb-step-number {
+  background-color: var(--mwb-primary-color);
+  color: white;
+}
+
+.mwb-step.completed .mwb-step-number {
+  background-color: var(--mwb-success-color);
+  color: white;
+}
+
+.mwb-step-title {
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.mwb-progress-bar {
+  height: 4px;
+  background-color: var(--mwb-border-color);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.mwb-progress-fill {
+  height: 100%;
+  background-color: var(--mwb-primary-color);
+  transition: width 0.3s ease;
+}
+
+/* Step Content Headings */
+.mwb-step-content h2 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: var(--mwb-dark-color);
+}
+
+/* Buttons */
+.mwb-primary-btn,
+.mwb-secondary-btn,
+.mwb-quick-book-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--mwb-border-radius);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--mwb-transition);
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.mwb-primary-btn {
+  background-color: var(--mwb-primary-color);
+  color: white;
+}
+
+.mwb-primary-btn:hover:not(:disabled) {
+  background-color: #005a87;
+  transform: translateY(-1px);
+}
+
+.mwb-primary-btn:disabled {
+  background-color: #e9ecef;
+  color: #495057;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.mwb-secondary-btn {
+  background-color: var(--mwb-secondary-color);
+  color: var(--mwb-dark-color);
+  border: 1px solid var(--mwb-border-color);
+}
+
+.mwb-secondary-btn:hover:not(:disabled) {
+  background-color: #e2e6ea;
+  transform: translateY(-1px);
+}
+
+.mwb-secondary-btn:disabled {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.7;
+  border-color: #dee2e6;
+}
+
+.mwb-quick-book-btn {
+  background-color: var(--mwb-primary-color);
+  color: white;
+  font-size: 18px;
+  padding: 16px 32px;
+  border-radius: 50px;
+  box-shadow: var(--mwb-box-shadow);
+}
+
+.mwb-quick-book-btn:hover {
+  background-color: #005a87;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Step Actions */
+.mwb-step-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: var(--mwb-light-color);
+  border-radius: var(--mwb-border-radius);
+}
+
+.mwb-step-actions button {
+  min-width: 120px;
+}
+
+/* Location Selector */
+.mwb-location-selector h2 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: var(--mwb-dark-color);
+}
+
+.mwb-locations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.mwb-location-card {
+  padding: 24px;
+  border: 2px solid var(--mwb-border-color);
+  border-radius: var(--mwb-border-radius);
+  cursor: pointer;
+  transition: var(--mwb-transition);
+  background: white;
+  box-shadow: var(--mwb-box-shadow);
+}
+
+.mwb-location-card:hover {
+  border-color: var(--mwb-primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mwb-location-card.selected {
+  border-color: var(--mwb-primary-color);
+  background-color: #e3f2fd;
+}
+
+.mwb-location-card h3 {
+  margin: 0 0 8px 0;
+  color: var(--mwb-dark-color);
+}
+
+.mwb-location-card p {
+  margin: 0 0 16px 0;
+  color: #6c757d;
+}
+
+.mwb-facilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mwb-facility-tag {
+  background-color: var(--mwb-info-color);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+/* Calendar Styles */
+.mwb-date-selector h2,
+.mwb-calendar-only h2 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: var(--mwb-dark-color);
+}
+
+.mwb-calendar {
+  background: white;
+  border-radius: var(--mwb-border-radius);
+  box-shadow: var(--mwb-box-shadow);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.mwb-calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--mwb-primary-color);
+  color: white;
+}
+
+.mwb-calendar-header h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.mwb-nav-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: var(--mwb-transition);
+}
+
+.mwb-nav-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.mwb-nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mwb-calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background-color: var(--mwb-light-color);
+}
+
+.mwb-weekday {
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--mwb-dark-color);
+  border-right: 1px solid var(--mwb-border-color);
+}
+
+.mwb-weekday:last-child {
+  border-right: none;
+}
+
+.mwb-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.mwb-calendar-day {
+  position: relative;
+  min-height: 60px;
+  padding: 8px;
+  border: 1px solid var(--mwb-border-color);
+  background: white;
+  cursor: pointer;
+  transition: var(--mwb-transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mwb-calendar-day:hover:not(:disabled) {
+  background-color: #e3f2fd;
+}
+
+.mwb-calendar-day.other-month {
+  background-color: #f8f9fa;
+  color: #6c757d;
+}
+
+.mwb-calendar-day.past {
+  background-color: #f8f9fa;
+  color: #adb5bd;
+  cursor: not-allowed;
+}
+
+.mwb-calendar-day.selected {
+  background-color: var(--mwb-primary-color);
+  color: white;
+}
+
+.mwb-calendar-day.available {
+  background-color: #d4edda;
+  border-color: var(--mwb-success-color);
+}
+
+.mwb-calendar-day.limited {
+  background-color: #fff3cd;
+  border-color: var(--mwb-warning-color);
+}
+
+.mwb-calendar-day.sold_out {
+  background-color: #f8d7da;
+  border-color: var(--mwb-danger-color);
+  cursor: not-allowed;
+}
+
+.mwb-calendar-day.blackout {
+  background-color: #e2e3e5;
+  color: #6c757d;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.mwb-calendar-day.blackout::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 5px,
+    rgba(0, 0, 0, 0.1) 5px,
+    rgba(0, 0, 0, 0.1) 10px
+  );
+}
+
+.mwb-calendar-day:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.date-number {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.special-price {
+  font-size: 10px;
+  background-color: var(--mwb-warning-color);
+  color: var(--mwb-dark-color);
+  padding: 2px 4px;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+/* Legend */
+.mwb-legend {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.mwb-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.mwb-legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid var(--mwb-border-color);
+}
+
+.mwb-legend-color.available {
+  background-color: #d4edda;
+}
+
+.mwb-legend-color.limited {
+  background-color: #fff3cd;
+}
+
+.mwb-legend-color.sold_out {
+  background-color: #f8d7da;
+}
+
+/* Ticket Selector */
+.mwb-ticket-selector h2 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: var(--mwb-dark-color);
+}
+
+.mwb-tickets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.mwb-ticket-card {
+  padding: 24px;
+  border: 2px solid var(--mwb-border-color);
+  border-radius: var(--mwb-border-radius);
+  text-align: center;
+  background: white;
+  box-shadow: var(--mwb-box-shadow);
+  transition: var(--mwb-transition);
+}
+
+.mwb-ticket-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mwb-ticket-card h3 {
+  margin: 0 0 8px 0;
+  color: var(--mwb-dark-color);
+}
+
+.mwb-ticket-price {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--mwb-primary-color);
+  margin: 8px 0 16px 0;
+}
+
+.mwb-quantity-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.mwb-qty-btn {
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--mwb-primary-color);
+  background: white;
+  color: var(--mwb-primary-color);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: var(--mwb-transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mwb-qty-btn:hover:not(:disabled) {
+  background-color: var(--mwb-primary-color);
+  color: white;
+}
+
+.mwb-qty-btn:disabled {
+  border-color: var(--mwb-border-color);
+  color: var(--mwb-border-color);
+  cursor: not-allowed;
+}
+
+.mwb-qty-display {
+  font-size: 20px;
+  font-weight: bold;
+  min-width: 40px;
+  text-align: center;
+  color: var(--mwb-dark-color);
+}
+
+/* Group Discount Notice */
+.mwb-group-discount-notice {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  padding: 20px;
+  border-radius: var(--mwb-border-radius);
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: var(--mwb-box-shadow);
+}
+
+.mwb-group-discount-notice h4 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+
+.mwb-group-discount-notice p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Pricing Summary */
+.mwb-pricing-summary,
+.mwb-final-pricing {
+  background: white;
+  border: 1px solid var(--mwb-border-color);
+  border-radius: var(--mwb-border-radius);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.mwb-pricing-summary h4,
+.mwb-final-pricing h4 {
+  margin: 0 0 16px 0;
+  color: var(--mwb-dark-color);
+}
+
+.mwb-price-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding: 8px 0;
+}
+
+.mwb-price-line.discount {
+  color: var(--mwb-success-color);
+  font-weight: 500;
+}
+
+.mwb-price-line.total {
+  border-top: 2px solid var(--mwb-border-color);
+  margin-top: 12px;
+  padding-top: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--mwb-dark-color);
+}
+
+/* Add-ons Selector */
+.mwb-addons-selector h2 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: var(--mwb-dark-color);
+}
+
+.mwb-addons-description {
+  text-align: center;
+  color: #6c757d;
+  margin-bottom: 30px;
+}
+
+.mwb-addons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.mwb-addon-card {
+  padding: 20px;
+  border: 2px solid var(--mwb-border-color);
+  border-radius: var(--mwb-border-radius);
+  text-align: center;
+  background: white;
+  box-shadow: var(--mwb-box-shadow);
+  transition: var(--mwb-transition);
+}
+
+.mwb-addon-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mwb-addon-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--mwb-border-radius);
+  margin-bottom: 15px;
+  border: 1px solid var(--mwb-border-color);
+}
+
+.mwb-addon-card h3 {
+  margin: 0 0 8px 0;
+  color: var(--mwb-dark-color);
+}
+
+.mwb-addon-description {
+  color: #6c757d;
+  font-size: 14px;
+  margin: 0 0 12px 0;
+}
+
+.mwb-addon-price {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--mwb-primary-color);
+  margin: 0 0 16px 0;
+}
+
+.mwb-addon-total {
+  margin-top: 12px;
+  font-weight: bold;
+  color: var(--mwb-success-color);
+}
+
+/* Booking Review */
+.mwb-booking-review h2 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: var(--mwb-dark-color);
+}
+
+.mwb-booking-summary {
+  background: white;
+  border: 1px solid var(--mwb-border-color);
+  border-radius: var(--mwb-border-radius);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.mwb-booking-summary h3 {
+  margin: 0 0 16px 0;
+  color: var(--mwb-dark-color);
+}
+
+.mwb-summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding: 4px 0;
+}
+
+.mwb-summary-section {
+  margin-bottom: 16px;
+}
+
+.mwb-summary-section h4 {
+  margin: 0 0 8px 0;
+  color: var(--mwb-primary-color);
+  font-size: 16px;
+}
+
+/* Promo Code Section */
+.mwb-promo-section {
+  background: white;
+  border: 1px solid var(--mwb-border-color);
+  border-radius: var(--mwb-border-radius);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.mwb-promo-section h4 {
+  margin: 0 0 16px 0;
+  color: var(--mwb-dark-color);
+}
+
+.mwb-promo-input {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.mwb-promo-input input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid var(--mwb-border-color);
+  border-radius: var(--mwb-border-radius);
+  font-size: 16px;
+}
+
+.mwb-apply-btn {
+  padding: 12px 20px;
+  background-color: var(--mwb-info-color);
+  color: white;
+  border: none;
+  border-radius: var(--mwb-border-radius);
+  cursor: pointer;
+  transition: var(--mwb-transition);
+}
+
+.mwb-apply-btn:hover {
+  background-color: #138496;
+}
+
+.mwb-promo-validation {
+  padding: 8px 12px;
+  border-radius: var(--mwb-border-radius);
+  font-size: 14px;
+}
+
+.mwb-promo-validation.valid {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.mwb-promo-validation.invalid {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Customer Form */
+.mwb-customer-form {
+  background: white;
+  border: 1px solid var(--mwb-border-color);
+  border-radius: var(--mwb-border-radius);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.mwb-customer-form h3 {
+  margin: 0 0 20px 0;
+  color: var(--mwb-dark-color);
+}
+
+.mwb-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.mwb-form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.mwb-form-field label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: var(--mwb-dark-color);
+}
+
+.mwb-form-field input {
+  padding: 12px;
+  border: 1px solid var(--mwb-border-color);
+  border-radius: var(--mwb-border-radius);
+  font-size: 16px;
+  transition: var(--mwb-transition);
+}
+
+.mwb-form-field input:focus {
+  outline: none;
+  border-color: var(--mwb-primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 124, 186, 0.1);
+}
+
+.mwb-form-field input.error {
+  border-color: var(--mwb-danger-color);
+}
+
+.error-message {
+  color: var(--mwb-danger-color);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.mwb-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  margin: 16px 0;
+}
+
+.mwb-checkbox-label input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
+.mwb-third-party-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--mwb-border-color);
+}
+
+.mwb-third-party-section h4 {
+  margin: 0 0 16px 0;
+  color: var(--mwb-primary-color);
+}
+
+/* Payment Step */
+.mwb-payment-step h2 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: var(--mwb-dark-color);
+}
+
+.mwb-payment-summary {
+  background: white;
+  border: 1px solid var(--mwb-border-color);
+  border-radius: var(--mwb-border-radius);
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.mwb-payment-summary h3 {
+  margin: 0 0 16px 0;
+  color: var(--mwb-dark-color);
+}
+
+.mwb-payment-summary .amount {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--mwb-primary-color);
+}
+
+.mwb-payment-methods {
+  background: white;
+  border: 1px solid var(--mwb-border-color);
+  border-radius: var(--mwb-border-radius);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.mwb-payment-methods h3 {
+  margin: 0 0 16px 0;
+  color: var(--mwb-dark-color);
+}
+
+.mwb-payment-option {
+  padding: 16px;
+  border: 2px solid var(--mwb-border-color);
+  border-radius: var(--mwb-border-radius);
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: var(--mwb-transition);
+}
+
+.mwb-payment-option:hover,
+.mwb-payment-option.selected {
+  border-color: var(--mwb-primary-color);
+  background-color: #e3f2fd;
+}
+
+.mwb-payment-option label {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.mwb-payment-option p {
+  margin: 4px 0 0 20px;
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.mwb-pay-btn {
+  font-size: 18px;
+  padding: 16px 32px;
+  min-width: 200px;
+}
+
+/* Payment Processing */
+.mwb-payment-processing {
+  text-align: center;
+  padding: 40px;
+}
+
+.mwb-payment-processing h2 {
+  margin-bottom: 16px;
+  color: var(--mwb-dark-color);
+}
+
+.mwb-payment-processing p {
+  color: #6c757d;
+  margin-bottom: 20px;
+}
+
+.mwb-booking-id {
+  font-weight: bold;
+  color: var(--mwb-primary-color);
+}
+
+/* Payment Error */
+.mwb-payment-error {
+  text-align: center;
+  padding: 40px;
+}
+
+.mwb-payment-error h2 {
+  color: var(--mwb-danger-color);
+  margin-bottom: 16px;
+}
+
+/* Booking Success */
+.mwb-booking-success {
+  text-align: center;
+  padding: 40px;
+  background: white;
+  border-radius: var(--mwb-border-radius);
+  box-shadow: var(--mwb-box-shadow);
+}
+
+.mwb-success-icon {
+  width: 80px;
+  height: 80px;
+  background-color: var(--mwb-success-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  margin: 0 auto 20px;
+}
+
+.mwb-booking-success h2 {
+  color: var(--mwb-success-color);
+  margin-bottom: 16px;
+}
+
+.mwb-booking-details {
+  background: var(--mwb-light-color);
+  border-radius: var(--mwb-border-radius);
+  padding: 20px;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.mwb-booking-details h3 {
+  margin: 0 0 16px 0;
+  text-align: center;
+  color: var(--mwb-dark-color);
+}
+
+.mwb-detail-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding: 8px 0;
+}
+
+.mwb-detail-item .booking-id {
+  font-family: monospace;
+  font-weight: bold;
+  color: var(--mwb-primary-color);
+}
+
+.mwb-success-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.mwb-confirmation-notice {
+  background: #d1ecf1;
+  border: 1px solid #bee5eb;
+  border-radius: var(--mwb-border-radius);
+  padding: 16px;
+  margin-top: 20px;
+}
+
+.mwb-confirmation-notice p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #0c5460;
+}
+
+/* Calendar Only Widget */
+.mwb-calendar-only {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.mwb-selected-date {
+  background: white;
+  border: 1px solid var(--mwb-border-color);
+  border-radius: var(--mwb-border-radius);
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.mwb-selected-date p {
+  margin: 0 0 16px 0;
+  font-weight: 500;
+  color: var(--mwb-dark-color);
+}
+
+/* Modal Styles */
+.mwb-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--mwb-transition);
+}
+
+.mwb-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mwb-modal-content {
+  background: white;
+  border-radius: var(--mwb-border-radius);
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transform: scale(0.9);
+  transition: var(--mwb-transition);
+}
+
+.mwb-modal-overlay.active .mwb-modal-content {
+  transform: scale(1);
+}
+
+.mwb-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #6c757d;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: var(--mwb-transition);
+}
+
+.mwb-modal-close:hover {
+  background-color: var(--mwb-light-color);
+  color: var(--mwb-dark-color);
+}
+
+/* Theme Variations */
+.theme-modern {
+  --mwb-primary-color: #6f42c1;
+  --mwb-border-radius: 12px;
+}
+
+.theme-classic {
+  --mwb-primary-color: #dc3545;
+  --mwb-border-radius: 4px;
+}
+
+.theme-minimal {
+  --mwb-primary-color: #343a40;
+  --mwb-border-radius: 0;
+  --mwb-box-shadow: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mwb-progress-steps {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .mwb-step {
+    flex: none;
+    min-width: 80px;
+  }
+  
+  .mwb-step:not(:last-child)::after {
+    display: none;
+  }
+  
+  .mwb-form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .mwb-step-actions {
+    flex-direction: column;
+  }
+  
+  .mwb-tickets-grid,
+  .mwb-addons-grid,
+  .mwb-locations-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .mwb-calendar-day {
+    min-height: 50px;
+    font-size: 14px;
+  }
+  
+  .mwb-legend {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .mwb-modal-content {
+    max-width: 95vw;
+    max-height: 95vh;
+    margin: 10px;
+    padding: 15px;
+  }
+  
+  .mwb-success-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .mwb-quick-book-btn {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+  
+  .mwb-calendar-header h3 {
+    font-size: 18px;
+  }
+  
+  .mwb-ticket-price {
+    font-size: 20px;
+  }
+  
+  .mwb-payment-summary .amount {
+    font-size: 20px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .mwb-step-actions,
+  .mwb-modal-close,
+  .mwb-nav-btn {
+    display: none !important;
+  }
+  
+  .mwb-booking-success {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+  
+  .mwb-success-icon {
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+.mwb-primary-btn:focus,
+.mwb-secondary-btn:focus,
+.mwb-quick-book-btn:focus,
+.mwb-calendar-day:focus,
+.mwb-location-card:focus,
+.mwb-ticket-card:focus,
+.mwb-addon-card:focus {
+  outline: 2px solid var(--mwb-primary-color);
+  outline-offset: 2px;
+}
+
+/* Adjustment Message */
+.mwb-adjustment-message {
+  background-color: #d1ecf1;
+  border: 1px solid #bee5eb;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  color: #0c5460;
+  font-size: 14px;
+  animation: mwb-fade-in 0.3s ease-in;
+}
+
+.mwb-adjustment-message p {
+  margin: 0;
+}
+
+@keyframes mwb-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --mwb-border-color: #000;
+    --mwb-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+}
